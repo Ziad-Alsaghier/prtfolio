@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyad Elsayed | Sales Executive Portfolio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@800&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <div class="welcome-slider"></div>
+
+    <nav>
+        <div class="profile-pic"></div>
+        <h2 style="font-family: 'Montserrat'; margin: 0; font-size: 1.4em;">ZEYAD ELSAYED</h2>
+        <p style="color: var(--primary); font-weight: 600; font-size: 0.9em; margin-top: 5px;">SALES EXECUTIVE</p>
+
+        <div style="margin-top: 30px;">
+            <div class="nav-link active" onclick="showPage('home', this)">🏠 Home & Bio</div>
+            <div class="nav-link" onclick="showPage('experience', this)">💼 Career History</div>
+            <div class="nav-link" onclick="showPage('skills', this)">🎯 Skills & Tools</div>
+            <div class="nav-link" onclick="showPage('dashboard', this)">🛠️ Admin Panel</div>
+        </div>
+
+        <div style="margin-top: auto; font-size: 0.8em; color: #666;">
+            <p>📍 Riyadh, Saudi Arabia</p>
+            <p>📧 zeyadsayed1111@gmail.com</p>
+            <p>📞 +966570765256</p>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="active-section">
+            <h1 style="font-size: 3em; font-family: 'Montserrat';">Hello, I'm Zeyad.</h1>
+            <div class="card">
+                <h3>Summary</h3>
+                <p>Highly motivated and results-driven Sales Executive with a proven ability to achieve and exceed sales
+                    targets. Expert in negotiation, cold calling, and relationship-building across the USA, KSA, UAE,
+                    and Egyptian markets.</p>
+            </div>
+
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="card">
+                    <h3>Subscribe for Updates</h3>
+                    <input type="email" id="sub-email" placeholder="Enter your email">
+                    <button class="btn" onclick="saveSub()">Subscribe Now</button>
+                </div>
+                <style>
+                    .rating-stars {
+                        font-size: 1.5em;
+                        color: #444;
+                        cursor: pointer;
+                        display: inline-block;
+                    }
+
+                    .rating-stars span.active {
+                        color: #ffd700;
+                    }
+
+                    .rating-stats {
+                        font-size: 0.9em;
+                        margin-top: 10px;
+                        color: var(--primary);
+                    }
+                </style>
+
+                <div class="card">
+                    <h3>Leave a Rating</h3>
+                    <div id="star-container" class="rating-stars">
+                        <span onclick="rate(1)" onmouseover="hoverStars(1)" onmouseout="resetStars()">⭐</span>
+                        <span onclick="rate(2)" onmouseover="hoverStars(2)" onmouseout="resetStars()">⭐</span>
+                        <span onclick="rate(3)" onmouseover="hoverStars(3)" onmouseout="resetStars()">⭐</span>
+                        <span onclick="rate(4)" onmouseover="hoverStars(4)" onmouseout="resetStars()">⭐</span>
+                        <span onclick="rate(5)" onmouseover="hoverStars(5)" onmouseout="resetStars()">⭐</span>
+                    </div>
+                    <div class="rating-stats">
+                        Avg: <span id="avg-val">0</span>/5 (<span id="count-val">0</span> reviews)
+                    </div>
+                    <p style="margin-top: 10px; font-size: 0.8em;">Your feedback matters.</p>
+                </div>
+            </div>
+        </section>
+        <div id="custom-menu"
+            style="display:none; position:fixed; background:#05070a; border:1px solid var(--primary); border-radius:10px; z-index:10000; width:180px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+            <div
+                style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.7em; color:var(--primary); font-weight:bold; text-align:center;">
+                ZEYAD'S MENU</div>
+            <div class="menu-item" onclick="showPage('home')">🏠 Go to Home</div>
+            <div class="menu-item" onclick="showPage('experience')">💼 Career Path</div>
+            <div class="menu-item" onclick="location.reload()">🔄 Refresh Page</div>
+            <div style="padding:10px; font-size:0.7em; color:#555; text-align:center;">&copy; 2026 Portfolio</div>
+        </div>
+
+        <style>
+            .menu-item {
+                padding: 12px 15px;
+                cursor: pointer;
+                font-size: 0.9em;
+                transition: 0.2s;
+                color: #ccc;
+            }
+
+            .menu-item:hover {
+                background: var(--primary);
+                color: black;
+            }
+        </style>
+        <section id="experience">
+            <h1>Career Journey</h1>
+            <div class="card">
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2024 - Present</span>
+                    <h3>YAMAHA Car Rental | Sales Executive</h3>
+                    <p>Managing daily operations for corporate accounts and luxury vehicle rentals in Riyadh.</p>
+                </div>
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2025</span>
+                    <h3>SB Realty Group | Cold Caller (Remote USA)</h3>
+                    <p>Conducted outbound calls to homeowners for property acquisition. Negotiated initial offers.</p>
+                </div>
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2023</span>
+                    <h3>FlairsTech | Travel Sales Consultant</h3>
+                    <p>Assisted international customers with travel bookings and upselling protection services.</p>
+                </div>
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2022</span>
+                    <h3>ERP System (GCE) | Telesales Representative</h3>
+                    <p>Sold software solutions to B2B clients in KSA and UAE markets.</p>
+                </div>
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2018 - 2020</span>
+                    <h3>Student Recruitment Consultant | Russia</h3>
+                    <p>Consultancy for Egyptian students enrolling in Russian Universities.</p>
+                </div>
+                <div class="exp-row">
+                    <span style="color: var(--primary); font-weight: 700;">2016 - 2018</span>
+                    <h3>Online Store Owner | EPICNPC & G2G</h3>
+                    <p>Managed global gaming digital sales and payment processing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h1>Proficiency & Data</h1>
+            <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="card">
+                    <h3>Sales Radar</h3>
+                    <div class="chart-container">
+                        <canvas id="skillsRadar"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Core Languages</h3>
+                    <p><b>Arabic:</b> Native <br> <b>English:</b> Fluent <br> <b>Russian:</b> Intermediate</p>
+                    <hr style="opacity:0.1">
+                    <h3>Education</h3>
+                    <p><b>Bachelor's Informatics:</b> Egypt (2016-2023)</p>
+                    <p><b>Russian Prep Program:</b> Perm, Russia (2018-2020)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <div id="login-overlay">
+                <div class="card" style="width: 400px; text-align: center; border: 1px solid var(--primary);">
+                    <h2>Admin Login</h2>
+                    <input type="text" id="adm-user" placeholder="Email">
+                    <input type="password" id="adm-pass" placeholder="Password">
+                    <button class="btn" style="width: 100%;" onclick="tryLogin()">Access Dashboard</button>
+                </div>
+            </div>
+
+            <div id="admin-panel" style="display: none;">
+                <div style="display: flex; justify-content: space-between;">
+                    <h1>Real-Time Stats</h1>
+                    <button class="btn" style="background: #ff4757; color: white;" onclick="logout()">Logout</button>
+                </div>
+
+                <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="card">
+                        <h3>Subscribers Growth</h3>
+                        <div class="chart-container">
+                            <canvas id="subChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Sales Conversion Funnel</h3>
+                        <div class="chart-container">
+                            <canvas id="salesFunnel"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Add New Experience</h3>
+                    <input type="text" id="new-exp-title" placeholder="Company Name & Role">
+                    <textarea id="new-exp-desc" placeholder="Responsibilities..."></textarea>
+                    <button class="btn" onclick="addExp()">Push Live</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <script src="./js/main.js"></script>
+
+
+</body>
+
+</html>
